@@ -2,6 +2,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import scipy.constants as cnt
 from scipy.integrate import quad
+import thermal_conductivity_vespel as tcv 
 
 # Vespel SP1 from 3K to 500mK
 # 4 bars:
@@ -33,8 +34,16 @@ J_cooling_500mK = 1.2 #J
 # 100 mK
 J_cooling_100mK = 120.e-3 #J
 
-P3K_500mK = quad(vespel_sp_22, 0.5, 3.0)[0] * A3K_500mK / l3K_500mK
-P3K_500mK_total = P3K_500mK * n3K_500mK
+# Power flowing per bar
+P3K_500mK = quad(tcv.vespel_sp_1, 0.5, 3.0)[0] * A3K_500mK / l3K_500mK # 500 mK
+P500mK_100mK = quad(tcv.vespel_sp_22, 0.1, 0.5)[0] * A500mK_100mK / l500mK_100mK # 100 mK
+# Total power
+P3K_500mK_total = P3K_500mK * n3K_500mK # 500 mK
+P500mK_100mK_total = P500mK_100mK * n500mK_100mK # 100 mK
 
-P500mK_100mK = quad(vespel_sp_22, 0.1, 0.5)[0] * A500mK_100mK / l500mK_100mK
-P500mK_100mK_total = P500mK_100mK * n500mK_100mK
+# Cool time in hours
+t500mK_h = J_cooling_500mK/P3K_500mK_total/60/60 # 500 mK
+t100mK_h = J_cooling_100mK/P500mK_100mK_total/60/60 # 100 mK
+
+print("Cold time for 500 mK stage: " + str(t500mK_h) + " hours.")
+print("Cold time for 100 mK stage: " + str(t100mK_h) + " hours.")

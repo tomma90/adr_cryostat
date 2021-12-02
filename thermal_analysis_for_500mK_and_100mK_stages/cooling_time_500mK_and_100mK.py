@@ -10,7 +10,7 @@ import thermal_conductivity_vespel as tcv
 # outer radius 5 mm
 # inner radius 4 mm
 n3K_500mK = 4 
-l3K_500mK = 110.e-3
+l3K_500mK = 95.186e-3 # Total length 110.e-3
 r_out3K_500mK = 5.e-3
 r_in3K_500mK = 4.e-3
 
@@ -22,7 +22,7 @@ A3K_500mK = np.pi * r_out3K_500mK * r_out3K_500mK - np.pi * r_in3K_500mK * r_in3
 # lenght 96 mm
 # outer radius 3 mm
 n500mK_100mK = 8
-l500mK_100mK = 96.e-3
+l500mK_100mK = 79.992e-3 # Total length 96.e-3
 r_out500mK_100mK = 3.e-3
 
 # Single bar 500mK-100mK cross-section

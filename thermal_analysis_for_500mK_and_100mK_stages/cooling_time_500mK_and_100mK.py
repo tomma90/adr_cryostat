@@ -45,5 +45,5 @@ P500mK_100mK_total = P500mK_100mK * n500mK_100mK # 100 mK
 t500mK_h = J_cooling_500mK/P3K_500mK_total/60/60 # 500 mK
 t100mK_h = J_cooling_100mK/P500mK_100mK_total/60/60 # 100 mK
 
-print("Cold time for 500 mK stage: " + str(t500mK_h) + " hours.")
-print("Cold time for 100 mK stage: " + str(t100mK_h) + " hours.")
+print("Cold time for 500 mK stage: " + str(t500mK_h) + " hours. With x2 margin: " + str(t500mK_h/2) + " hours.")
+print("Cold time for 100 mK stage: " + str(t100mK_h) + " hours. With x2 margin: " + str(t100mK_h/2) + " hours.")

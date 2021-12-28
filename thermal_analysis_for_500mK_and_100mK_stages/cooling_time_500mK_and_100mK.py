@@ -36,7 +36,7 @@ J_cooling_100mK = 120.e-3 #J
 
 # Power flowing per bar
 P3K_500mK = quad(tcv.vespel_sp_1, 0.5, 3.0)[0] * A3K_500mK / l3K_500mK # 500 mK
-P500mK_100mK = quad(tcv.vespel_sp_22, 0.1, 0.5)[0] * A500mK_100mK / l500mK_100mK # 100 mK
+P500mK_100mK = quad(tcv.vespel_sp_1, 0.1, 0.5)[0] * A500mK_100mK / l500mK_100mK # 100 mK
 # Total power
 P3K_500mK_total = P3K_500mK * n3K_500mK # 500 mK
 P500mK_100mK_total = P500mK_100mK * n500mK_100mK # 100 mK
